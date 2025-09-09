@@ -29,6 +29,6 @@ console.log(tareasAltaPrioridad);
 
 //Encontrar la tarea que contiene "JavaScript" en su descripción
 
-const palabra = tareas.find(palabra => palabra.descripcion === 'JavaScript')
-console.log(palabra);
+const palabra = tareas.filter(tarea=> tarea.descripcion.includes("JavaScript"))
+console.log(palabra);   
 
