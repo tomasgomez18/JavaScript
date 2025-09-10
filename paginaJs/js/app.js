@@ -10,7 +10,7 @@ const cambiarTitulo = () => {
 
     //titulo.className = 'text.warning';
 
-//modifica el texto
+//modifica el texto iyectando, esta etiqueta no es de usso habitual por su vulnerabilidad
     //titulo.innerHTML = 'hola <b>mundo</b>';
 
  /*    titulo.textContent ='hola <b>mundo</b>';
