@@ -24,5 +24,28 @@ function currentTime(){
     setInterval(currentTime, 1000);
 
 
+    //capturo los elementos que voy a necesitar para manipular
+    const input = document.getElementById('tareas');
+    const boton = document.getElementById('botonTarea');
+    const listaDeTareas = document.getElementById('listaTareas');
 
-
+    //Agrego una funcion para agregar y pregunta si el input no esta vacio
+    function agregarTarea (){
+        //si el input no esta vacio entonces hace todo el desarrollo
+        if (input.value){
+            //creo una variable para crear el elimento div que va a ser el contenedor visual 
+            let tareaNueva = document.createElement('div');
+            //al div que cree le agrego la clase tarea al memomento que se cree
+            tareaNueva.classList.add('tarea');
+            //creo un elemento p para agregar ahi el valor que tenga el input
+            let texto = document.createElement('p');
+            //inyecto el contenido que tiene el input a la variable texto 
+            texto.innerText = input.value;
+            //inserto el elemento p adentro del div contenedor
+            tareaNueva.appendChild(texto)
+            //inserto el div completo al contenedotr principal para que se vea visualmente en la pagina
+            listaDeTareas.appendChild(tareaNueva);
+        }
+    }
+    //llamo a la funcion en el boton para que al hacer click se ejecute la funcion
+    boton.addEventListener('click', agregarTarea);
