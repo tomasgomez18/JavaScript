@@ -39,10 +39,14 @@ body{
     text-align: center;
 }
 .icono-eliminar{
-    color: rgb(255,255,255);
+    color: white;
+    font-size: 24px;
 }
+
+
 i{
     margin: 5px;
     padding: 10px;
     cursor: pointer;
+    font-size: 24px ;
 }
