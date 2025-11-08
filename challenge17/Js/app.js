@@ -53,9 +53,11 @@ function currentTime(){
             eliminar.addEventListener('click', function() {
                 tareaNueva.remove(); 
             });
-
-            iconos.appendChild(eliminar);
-            tareaNueva.appendChild(iconos);
+            let editar = document.createElement('i');
+            editar.classList.add('bi', 'bi-pencil', 'icono-elimnar');
+            
+            tareaNueva.append(eliminar, editar)
+            
         }
     }
     //llamo a la funcion en el boton para que al hacer click se ejecute la funcion
