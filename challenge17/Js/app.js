@@ -54,11 +54,44 @@ function currentTime(){
                 tareaNueva.remove(); 
             });
             let editar = document.createElement('i');
-            editar.classList.add('bi', 'bi-pencil', 'icono-elimnar');
+            editar.classList.add('bi', 'bi-pencil', 'icono-editar');
+            editar.addEventListener('click', editarTarea);
             
-            tareaNueva.append(eliminar, editar)
+            iconos.append(eliminar, editar);
+            tareaNueva.appendChild(iconos);
+
             
         }
+
     }
+
+    function editarTarea(e) {
+    let tarea = e.target.parentElement.parentElement;
+    let textoOriginal = tarea.querySelector('p');
+
+    let inputEditar = document.createElement('input');
+    inputEditar.type = 'text';
+    inputEditar.value = textoOriginal.innerText;
+
+    tarea.replaceChild(inputEditar, textoOriginal);
+
+    e.target.classList.remove('bi-pencil');
+    e.target.classList.add('bi-save');
+
+    e.target.removeEventListener('click', editarTarea);
+    e.target.addEventListener('click', function guardarEdicion() {
+        let nuevoTexto = inputEditar.value;
+        let textoFinal = document.createElement('p');
+        textoFinal.innerText = nuevoTexto;
+
+        tarea.replaceChild(textoFinal, inputEditar);
+
+        e.target.classList.remove('bi-save');
+        e.target.classList.add('bi-pencil'); // ← corregido
+
+        e.target.removeEventListener('click', guardarEdicion);
+        e.target.addEventListener('click', editarTarea);
+    });
+}
     //llamo a la funcion en el boton para que al hacer click se ejecute la funcion
     boton.addEventListener('click', agregarTarea);
