@@ -78,7 +78,7 @@ function currentTime(){
     let tarea = e.target.parentElement.parentElement;
     //busca el primer p dentro de tarea que contiene el texto actual de la tarea y la guarda en textoOriginal
     let textoOriginal = tarea.querySelector('p');
-        //crea un campo input para que el usuario pueda editar el texto
+        //crea un campo input para que el usuario pueda editar el texto.
     let inputEditar = document.createElement('input');
         //define el tipo del input, en este caso es de tipo texto
     inputEditar.type = 'text';
